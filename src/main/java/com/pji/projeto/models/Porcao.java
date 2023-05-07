@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "porcao")
-public class Porcao extends itemPedido{
+public class Porcao extends Menu{
     
     @Column(name = "tamanho", length = 60, nullable = false)
     private String tamanho;
