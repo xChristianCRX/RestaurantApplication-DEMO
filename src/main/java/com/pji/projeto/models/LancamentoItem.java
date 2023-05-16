@@ -1,5 +1,7 @@
 package com.pji.projeto.models;
 
+import com.pji.projeto.models.EmbbedKeys.LancamentoItemPK;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

@@ -29,9 +29,6 @@ public class Pedido {
     @Column(name = "numeroMesa", unique = true)
     private int numeroMesa;
 
-    @Column(name = "valorTotal")
-    private double valorTotal;
-
     @Column(name = "hora")
     private Time hora;
 }
