@@ -1,0 +1,32 @@
+package com.pji.projeto.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pji.projeto.models.Acrescimo;
+import com.pji.projeto.models.Pessoa;
+import com.pji.projeto.repositories.AcrescimoRepository;
+
+import jakarta.transaction.Transactional;
+
+@Service
+public class AcrescimoService {
+    
+    @Autowired
+    private AcrescimoRepository acrescimoRepository;
+
+    public Acrescimo findById(Long id){
+        Optional<Acrescimo> acrescimo = this.acrescimoRepository.findById(id);
+        return acrescimo.orElseThrow(() -> new RuntimeException(
+                "Acréscimo não cadastrado! Id: " + id + ", Tipo: " + Acrescimo.class.getName()));
+    }
+
+    @Transactional //Envio de dados para o BDD
+    public Acrescimo create(Acrescimo acrescimo){
+        acrescimo.setId(null);
+        acrescimo = this.acrescimoRepository.save(acrescimo);
+        return acrescimo;
+    }
+}

@@ -1,9 +1,9 @@
 package com.pji.projeto.models.EmbbedKeys;
 
 import com.pji.projeto.models.Acrescimo;
-import com.pji.projeto.models.Garcom;
 import com.pji.projeto.models.Menu;
 import com.pji.projeto.models.Pedido;
+import com.pji.projeto.models.Pessoa;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
@@ -22,7 +22,7 @@ public class LancamentoItemPK {
 
     @ManyToOne
     @JoinColumn(name="garcom_id")
-    private Garcom garcom;
+    private Pessoa garcom;
 
     @ManyToOne
     @JoinColumn(name="pedido_id")
