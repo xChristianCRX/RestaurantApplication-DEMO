@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pji.projeto.models.Acrescimo;
-import com.pji.projeto.models.Pessoa;
 import com.pji.projeto.repositories.AcrescimoRepository;
 
 import jakarta.transaction.Transactional;
@@ -28,5 +27,22 @@ public class AcrescimoService {
         acrescimo.setId(null);
         acrescimo = this.acrescimoRepository.save(acrescimo);
         return acrescimo;
+    }
+
+    @Transactional
+    public Acrescimo update(Acrescimo acrescimo){
+        Acrescimo newAcrescimo = findById(acrescimo.getId());
+        newAcrescimo.setItem(acrescimo.getItem());
+        newAcrescimo.setValor(acrescimo.getValor());
+        return this.acrescimoRepository.save(newAcrescimo);
+    }
+
+    public void delete(Long id){
+        findById(id);
+        try {
+            this.acrescimoRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Não é possível excluir pois há entidades relacionadas!");
+        }
     }
 }
