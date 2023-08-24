@@ -30,5 +30,5 @@ public class Pedido {
     private int numeroMesa;
 
     @Column(name = "hora")
-    private Time hora;
+    private String hora;
 }
