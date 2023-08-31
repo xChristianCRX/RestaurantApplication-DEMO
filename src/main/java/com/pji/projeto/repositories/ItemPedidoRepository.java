@@ -7,10 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.pji.projeto.models.ItemPedido;
-import com.pji.projeto.models.EmbbedKeys.ItemPedidoPK;
 
 @Repository
-public interface ItemPedidoRepository extends JpaRepository<ItemPedido, ItemPedidoPK>{
+public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Long>{
     
     //@Query(value = " SELECT from ItemPedido where id_acrescimo = :idAcrescimo and id_menu = :idMenu")
     //List<ItemPedido> findByAcrescimoAndItem(Long idMenu, Long idAcrescimo);
