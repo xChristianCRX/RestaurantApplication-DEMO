@@ -1,21 +1,19 @@
 package com.pji.projeto.models.EmbbedKeys;
 
-import com.pji.projeto.models.Acrescimo;
-import com.pji.projeto.models.Menu;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import java.io.Serializable;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ItemPedidoPK implements Serializable{
 
-@Embeddable
-public class ItemPedidoPK {
-
-    @ManyToOne
-    @JoinColumn(name="item_id")
-    private Menu item;
-
-    @ManyToOne
-    @JoinColumn(name="acrescimo_id")
-    private Acrescimo acrescimo;
+    private int item;
+    private int acrescimo;
+    
 }

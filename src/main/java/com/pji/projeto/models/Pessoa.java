@@ -1,5 +1,7 @@
 package com.pji.projeto.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -16,14 +18,12 @@ import lombok.Setter;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "TYPE")
 @Table(name = "pessoa")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pessoa{
+public class Pessoa implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

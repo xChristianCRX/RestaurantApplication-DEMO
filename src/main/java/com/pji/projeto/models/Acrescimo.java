@@ -1,5 +1,7 @@
 package com.pji.projeto.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Acrescimo {
+public class Acrescimo implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

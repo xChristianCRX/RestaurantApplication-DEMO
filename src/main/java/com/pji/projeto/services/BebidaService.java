@@ -22,21 +22,21 @@ public class BebidaService {
                 "Bebida não cadastrada! Id: " + id + ", Tipo: " + Bebida.class.getName()));
     }
 
-    @Transactional //Envio de dados para o BDD
-    public Bebida create(Bebida bebida){
-        bebida.setId(null);
-        bebida = this.bebidaRepository.save(bebida);
-        return bebida;
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Bebida create(Bebida bebida){
+      //  bebida.setId(null);
+       // bebida = this.bebidaRepository.save(bebida);
+      //  return bebida;
+    //}
 
-    @Transactional //Envio de dados para o BDD
-    public Bebida update(Bebida bebida){
-        Bebida newBebida = findById(bebida.getId());
-        newBebida.setPreco(bebida.getPreco());
-        newBebida.setNome(bebida.getNome());
-        newBebida.setLitragem(bebida.getLitragem());
-        return this.bebidaRepository.save(newBebida);
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Bebida update(Bebida bebida){
+      //  Bebida newBebida = findById(bebida.getId());
+       // newBebida.setPreco(bebida.getPreco());
+       // newBebida.setNome(bebida.getNome());
+       // newBebida.setLitragem(bebida.getLitragem());
+      //  return this.bebidaRepository.save(newBebida);
+   // }
 
     public void delete(Long id){
         findById(id);

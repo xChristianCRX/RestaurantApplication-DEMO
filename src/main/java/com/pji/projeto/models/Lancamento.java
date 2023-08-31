@@ -1,5 +1,7 @@
 package com.pji.projeto.models;
 
+import java.io.Serializable;
+
 import com.pji.projeto.models.EmbbedKeys.LancamentoPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -16,7 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Lancamento {
+public class Lancamento implements Serializable{
     
     @EmbeddedId
     private LancamentoPK id = new LancamentoPK();

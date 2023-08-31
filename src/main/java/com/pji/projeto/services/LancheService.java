@@ -22,21 +22,21 @@ public class LancheService {
                 "Lanche não cadastrada! Id: " + id + ", Tipo: " + Lanche.class.getName()));
     }
 
-    @Transactional //Envio de dados para o BDD
-    public Lanche create(Lanche lanche){
-        lanche.setId(null);
-        lanche = this.lancheRepository.save(lanche);
-        return lanche;
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Lanche create(Lanche lanche){
+     //   lanche.setId(null);
+     //   lanche = this.lancheRepository.save(lanche);
+      //  return lanche;
+    //}
 
-    @Transactional //Envio de dados para o BDD
-    public Lanche update(Lanche Lanche){
-        Lanche newLanche = findById(Lanche.getId());
-        newLanche.setPreco(Lanche.getPreco());
-        newLanche.setNome(Lanche.getNome());
-        newLanche.setIngredientes(Lanche.getIngredientes());
-        return this.lancheRepository.save(newLanche);
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Lanche update(Lanche Lanche){
+       // Lanche newLanche = findById(Lanche.getId());
+       // newLanche.setPreco(Lanche.getPreco());
+       // newLanche.setNome(Lanche.getNome());
+       // newLanche.setIngredientes(Lanche.getIngredientes());
+       // return this.lancheRepository.save(newLanche);
+   // }
 
     public void delete(Long id){
         findById(id);

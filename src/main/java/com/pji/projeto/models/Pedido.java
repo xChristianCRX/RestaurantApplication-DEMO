@@ -1,6 +1,6 @@
 package com.pji.projeto.models;
 
-import java.sql.Time;
+import java.io.Serializable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Pedido {
+public class Pedido implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +30,5 @@ public class Pedido {
     private int numeroMesa;
 
     @Column(name = "hora")
-    private Time hora;
+    private String hora;
 }

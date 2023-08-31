@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "bebida")
+@Table(name = "bebidas")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bebida extends Menu{
+public class Bebida extends Menu {
+    
     @Column(name = "nome", length = 60, nullable = false)
     private String nome;
 

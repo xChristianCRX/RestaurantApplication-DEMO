@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "porcao")
+@Table(name = "porcoes")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Porcao extends Menu{
+public class Porcao extends Menu {
     
     @Column(name = "tamanho", length = 60, nullable = false)
     private String tamanho;

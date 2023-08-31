@@ -12,7 +12,6 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class PorcaoService {
-
     @Autowired
     private PorcaoRepository porcaoRepository;
 
@@ -22,21 +21,21 @@ public class PorcaoService {
                 "Porcao não cadastrada! Id: " + id + ", Tipo: " + Porcao.class.getName()));
     }
 
-    @Transactional //Envio de dados para o BDD
-    public Porcao create(Porcao Porcao){
-        Porcao.setId(null);
-        Porcao = this.porcaoRepository.save(Porcao);
-        return Porcao;
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Porcao create(Porcao Porcao){
+    //    Porcao.setId(null);
+     //   Porcao = this.porcaoRepository.save(Porcao);
+    //    return Porcao;
+    //}
 
-    @Transactional //Envio de dados para o BDD
-    public Porcao update(Porcao Porcao){
-        Porcao newPorcao = findById(Porcao.getId());
-        newPorcao.setPreco(Porcao.getPreco());
-        newPorcao.setTamanho(Porcao.getTamanho());
-        newPorcao.setTipo(Porcao.getTipo());
-        return this.porcaoRepository.save(newPorcao);
-    }
+    //@Transactional //Envio de dados para o BDD
+    //public Porcao update(Porcao porcao){
+        //Porcao newPorcao = findById(porcao.getId());
+        //newPorcao.setPreco(porcao.getPreco());
+        //newPorcao.setTamanho(porcao.getTamanho());
+        //newPorcao.setTipo(porcao.getTipo());
+        //return this.porcaoRepository.save(newPorcao);
+    //}
 
     public void delete(Long id){
         findById(id);
