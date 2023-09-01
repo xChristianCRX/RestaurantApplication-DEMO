@@ -22,7 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public abstract class Menu implements Serializable{
+public class Menu implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
