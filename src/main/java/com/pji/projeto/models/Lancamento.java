@@ -2,11 +2,7 @@ package com.pji.projeto.models;
 
 import java.io.Serializable;
 
-import com.pji.projeto.models.EmbbedKeys.LancamentoPK;
-
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +15,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Lancamento implements Serializable{
-    
-    @EmbeddedId
-    private LancamentoPK id = new LancamentoPK();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true)
+    private Long id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_garcom")
+    private Pessoa garcom;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pedido")
+    private Pedido pedido;
 }
