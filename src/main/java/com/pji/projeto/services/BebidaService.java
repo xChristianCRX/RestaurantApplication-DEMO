@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pji.projeto.models.Bebida;
-import com.pji.projeto.repositories.BebidaRepository;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class BebidaService {

@@ -23,7 +23,7 @@ public class MenuService {
     }
 
     @Transactional //Envio de dados para o BDD
-    public Menu createMenu(Menu menu){
+    public Menu create(Menu menu){
         menu.setId(null);
         menu = this.menuRepository.save(menu);
         return menu;

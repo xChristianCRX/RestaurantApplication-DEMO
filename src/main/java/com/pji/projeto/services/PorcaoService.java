@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pji.projeto.models.Porcao;
-import com.pji.projeto.repositories.PorcaoRepository;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class PorcaoService {
