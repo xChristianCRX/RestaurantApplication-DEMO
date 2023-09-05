@@ -9,14 +9,12 @@ import com.pji.projeto.models.Porcao;
 
 @Service
 public class PorcaoService {
-    @Autowired
-    private PorcaoRepository porcaoRepository;
 
-    public Porcao findById(Long id){
-        Optional<Porcao> porcao = this.porcaoRepository.findById(id);
-        return porcao.orElseThrow(() -> new RuntimeException(
-                "Porcao não cadastrada! Id: " + id + ", Tipo: " + Porcao.class.getName()));
-    }
+//    public Porcao findById(Long id){
+//        Optional<Porcao> porcao = this.porcaoRepository.findById(id);
+//        return porcao.orElseThrow(() -> new RuntimeException(
+//                "Porcao não cadastrada! Id: " + id + ", Tipo: " + Porcao.class.getName()));
+//    }
 
     //@Transactional //Envio de dados para o BDD
     //public Porcao create(Porcao Porcao){
@@ -34,12 +32,12 @@ public class PorcaoService {
         //return this.porcaoRepository.save(newPorcao);
     //}
 
-    public void delete(Long id){
-        findById(id);
-        try {
-            this.porcaoRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException("Não é possível excluir pois há entidades relacionadas!");
-        }
-    }
+//    public void delete(Long id){
+//        findById(id);
+//        try {
+//            this.porcaoRepository.deleteById(id);
+//        } catch (Exception e) {
+//            throw new RuntimeException("Não é possível excluir pois há entidades relacionadas!");
+//        }
+//    }
 }
