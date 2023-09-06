@@ -23,17 +23,11 @@ public class MenuController {
     @Autowired
     private MenuRepository menuRepository;
     @Autowired
-    private LancheService lancheService;
-    @Autowired
     private MenuService menuService;
-    @Autowired
-    private BebidaService bebidaService;
-    @Autowired
-    private PorcaoService porcaoService;
 
     @PostMapping("/lanche")
     public ResponseEntity<Void> createLanche(@Valid @RequestBody Lanche lanche) {
-        this.menuRepository.save(lanche);
+        this.menuService.createLanche(lanche);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(lanche.getId()).toUri();
         return ResponseEntity.created(uri).build();
@@ -41,7 +35,7 @@ public class MenuController {
 
     @PostMapping("/bebida")
     public ResponseEntity<Void> createBebida(@Valid @RequestBody Bebida bebida) {
-        this.menuRepository.save(bebida);
+        this.menuService.createBebida(bebida);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(bebida.getId()).toUri();
         return ResponseEntity.created(uri).build();
@@ -49,7 +43,7 @@ public class MenuController {
 
     @PostMapping("/porcao")
     public ResponseEntity<Void> createPorcao(@Valid @RequestBody Porcao porcao) {
-        this.menuRepository.save(porcao);
+        this.menuService.createPorcao(porcao);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(porcao.getId()).toUri();
         return ResponseEntity.created(uri).build();
@@ -57,19 +51,19 @@ public class MenuController {
 
     @GetMapping("/lanche/{id}")
     public ResponseEntity<Lanche> findByIdLanche(@PathVariable Long id){
-        Lanche lanche = this.menuRepository.selectByIdLanche(id);
+        Lanche lanche = this.menuService.findLanche(id);
         return ResponseEntity.ok().body(lanche);
     }
 
     @GetMapping("/bebida/{id}")
     public ResponseEntity<Bebida> findByIdBebida(@PathVariable Long id){
-        Bebida bebida = this.menuRepository.selectByIdBebida(id);
+        Bebida bebida = this.menuService.findBebida(id);
         return ResponseEntity.ok().body(bebida);
     }
 
     @GetMapping("/porcao/{id}")
     public ResponseEntity<Porcao> findByIdPorcao(@PathVariable Long id){
-        Porcao porcao = this.menuRepository.selectByIdPorcao(id);
+        Porcao porcao = this.menuService.findPorcao(id);
         return ResponseEntity.ok().body(porcao);
     }
 
@@ -91,4 +85,42 @@ public class MenuController {
         return ResponseEntity.ok().body(porcoes);
     }
 
+    @DeleteMapping("/lanche/{id}")
+    public ResponseEntity<Void> deleteLanche(@PathVariable Long id){
+        this.menuService.deleteLanche(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/bebida/{id}")
+    public ResponseEntity<Void> deleteBebida(@PathVariable Long id){
+        this.menuService.deleteBebida(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/porcao/{id}")
+    public ResponseEntity<Void> deletePorcao(@PathVariable Long id){
+        this.menuService.deletePorcao(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/lanche/{id}")
+    public ResponseEntity<Void> updateLanche(@Valid @RequestBody Lanche lanche, @PathVariable Long id){
+        lanche.setId(id);
+        this.menuService.updateLanche(lanche);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/bebida/{id}")
+    public ResponseEntity<Void> updateBebida(@Valid @RequestBody Bebida bebida, @PathVariable Long id){
+        bebida.setId(id);
+        this.menuService.updateBebida(bebida);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/porcao/{id}")
+    public ResponseEntity<Void> updatePorcao(@Valid @RequestBody Porcao porcao, @PathVariable Long id){
+        porcao.setId(id);
+        this.menuService.updatePorcao(porcao);
+        return ResponseEntity.noContent().build();
+    }
 }

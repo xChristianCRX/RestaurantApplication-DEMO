@@ -1,7 +1,9 @@
 package com.pji.projeto.controllers;
 
 import java.net.URI;
+import java.util.List;
 
+import com.pji.projeto.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -24,7 +26,8 @@ import jakarta.validation.Valid;
 @Validated
 @RestController
 public class PessoaController {
-    
+    @Autowired
+    private PessoaRepository pessoaRepository;
     @Autowired
     private PessoaService pessoaService;
 
@@ -32,6 +35,12 @@ public class PessoaController {
     public ResponseEntity<Pessoa> findById(@PathVariable Long id){
         Pessoa pessoa = this.pessoaService.findById(id);
         return ResponseEntity.ok().body(pessoa);
+    }
+
+    @GetMapping("/pessoas")
+    public ResponseEntity<List<Pessoa>> findAll(){
+        List<Pessoa> pessoas = this.pessoaRepository.findAll();
+        return ResponseEntity.ok().body(pessoas);
     }
 
     @PostMapping
