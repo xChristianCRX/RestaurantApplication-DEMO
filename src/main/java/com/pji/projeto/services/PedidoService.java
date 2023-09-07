@@ -1,6 +1,8 @@
 package com.pji.projeto.services;
 
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +27,21 @@ public class PedidoService {
 
     @Transactional //Envio de dados para o BDD
     public Pedido create(Pedido pedido){
+        Date date = new Date();
+        String hour = new SimpleDateFormat("HH:mm:ss").format(date);
         pedido.setId(null);
+        pedido.setHora(hour);
         pedido = this.pedidoRepository.save(pedido);
         return pedido;
     }
 
     @Transactional //Envio de dados para o BDD
     public Pedido update(Pedido pedido){
-        DateTimeFormatter hora = DateTimeFormatter.ofPattern("HH:mm");
+        Date date = new Date();
+        String hour = new SimpleDateFormat("HH:mm:ss").format(date);
         Pedido newPedido = findById(pedido.getId());
         newPedido.setNumeroMesa(pedido.getNumeroMesa());
-        newPedido.setHora(hora.toString());
+        newPedido.setHora(hour);
         return this.pedidoRepository.save(newPedido);
     }
 
