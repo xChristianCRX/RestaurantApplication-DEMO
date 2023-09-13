@@ -22,8 +22,7 @@ public class ItemPedido implements Serializable{
     @Column(name = "id", unique = true)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item_menu")
+    @OneToOne(cascade = CascadeType.DETACH)
     private Menu item;
 
     @OneToMany
