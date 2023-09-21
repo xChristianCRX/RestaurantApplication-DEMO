@@ -32,7 +32,7 @@ public class ItemPedidoService {
     public ItemPedido update(ItemPedido item){
         ItemPedido newItem = findById(item.getId());
         newItem.setItem(item.getItem());
-        newItem.setAcrescimo(item.getAcrescimo());
+        newItem.setAcrescimos(item.getAcrescimos());
         return this.repository.save(newItem);
     }
 

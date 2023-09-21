@@ -21,7 +21,7 @@ public class Lancamento implements Serializable{
     @Column(name = "id", unique = true)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_garcom")
     private Pessoa garcom;
 

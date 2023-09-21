@@ -26,7 +26,7 @@ public class Pedido implements Serializable{
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "numeroMesa", unique = true)
+    @Column(name = "numeroMesa")
     private int numeroMesa;
 
     @Column(name = "hora")

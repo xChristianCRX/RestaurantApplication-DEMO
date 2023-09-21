@@ -22,15 +22,15 @@ public class ItemPedido implements Serializable{
     @Column(name = "id", unique = true)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.DETACH)
+    @ManyToOne
     private Menu item;
 
     @OneToMany
     @JoinTable(
             name = "acrescimos_item",
             joinColumns = @JoinColumn(name = "id_item"),
-            inverseJoinColumns = @JoinColumn(name = "id_acrescimo")
+            inverseJoinColumns = @JoinColumn(name = "id_acrescimo", unique = false  )
     )
-    private List<Acrescimo> acrescimo;
+    private List<Acrescimo> acrescimos;
 
 }
