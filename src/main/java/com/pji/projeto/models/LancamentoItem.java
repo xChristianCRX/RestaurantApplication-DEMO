@@ -1,6 +1,7 @@
 package com.pji.projeto.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,8 +23,8 @@ public class LancamentoItem implements Serializable {
     private Long id;
 
     //Item escolhido e seus acréscimos
-    @OneToOne(cascade = CascadeType.ALL)
-    private ItemPedido itemPedido;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ItemPedido> itemPedido;
 
     //Nº do pedido e o garçom responsável
     @OneToOne(cascade = CascadeType.ALL)
