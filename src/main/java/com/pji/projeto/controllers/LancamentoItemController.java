@@ -1,11 +1,8 @@
 package com.pji.projeto.controllers;
 
-import com.pji.projeto.models.Lancamento;
 import com.pji.projeto.models.LancamentoItem;
 import com.pji.projeto.repositories.LancamentoItemRepository;
-import com.pji.projeto.repositories.LancamentoRepository;
 import com.pji.projeto.services.LancamentoItemService;
-import com.pji.projeto.services.LancamentoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,19 +24,19 @@ public class LancamentoItemController {
     private LancamentoItemService service;
 
     @GetMapping("/{id}")
-    public ResponseEntity<LancamentoItem> findById(@PathVariable Long id){
+    public ResponseEntity<LancamentoItem> findById(@PathVariable Long id) {
         LancamentoItem lancamento = this.service.findById(id);
         return ResponseEntity.ok().body(lancamento);
     }
 
     @GetMapping("/lancamentos")
-    public ResponseEntity<List<Lancamento>> findAll(){
-        List<Lancamento> lancamentos = this.repository.findAll();
+    public ResponseEntity<List<LancamentoItem>> findAll() {
+        List<LancamentoItem> lancamentos = this.repository.findAll();
         return ResponseEntity.ok().body(lancamentos);
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@Valid @RequestBody Lancamento lancamento){
+    public ResponseEntity<Void> create(@Valid @RequestBody LancamentoItem lancamento) {
         this.service.create(lancamento);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(lancamento.getId()).toUri();
@@ -47,8 +44,9 @@ public class LancamentoItemController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
 }

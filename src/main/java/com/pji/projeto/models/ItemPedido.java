@@ -25,12 +25,17 @@ public class ItemPedido implements Serializable{
     @ManyToOne
     private Menu item;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(
             name = "acrescimos_item",
             joinColumns = @JoinColumn(name = "id_item"),
-            inverseJoinColumns = @JoinColumn(name = "id_acrescimo", unique = false  )
+            inverseJoinColumns = @JoinColumn(name = "id_acrescimo")
     )
     private List<Acrescimo> acrescimos;
 
+    @Column(name = "quantidade", nullable = false)
+    private int quantidade;
+
+    @Column(name = "observacoes", length = 255, nullable = false)
+    private String observacoes;
 }

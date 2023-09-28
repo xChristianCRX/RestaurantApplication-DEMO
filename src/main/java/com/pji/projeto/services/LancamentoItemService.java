@@ -18,23 +18,23 @@ public class LancamentoItemService {
     @Autowired
     private LancamentoItemRepository repository;
 
-    public LancamentoItem findById(Long id){
+    public LancamentoItem findById(Long id) {
         Optional<LancamentoItem> item = this.repository.findById(id);
         return item.orElseThrow(() -> new RuntimeException(
                 "Lançamento não cadastrado! Id: " + id + ", Tipo: " + LancamentoItem.class.getName()));
     }
 
     @Transactional //Envio de dados para o BDD
-    public LancamentoItem create(LancamentoItem lancamento){
+    public LancamentoItem create(LancamentoItem lancamento) {
         Date date = new Date();
         String hour = new SimpleDateFormat("HH:mm:ss").format(date);
         lancamento.setId(null);
-        lancamento.getPedido().setHora(hour);
+        lancamento.getLancamento().getPedido().setHora(hour);
         lancamento = this.repository.save(lancamento);
         return lancamento;
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         findById(id);
         try {
             this.repository.deleteById(id);

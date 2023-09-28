@@ -26,6 +26,7 @@ public interface MenuRepository extends JpaRepository<Menu, Long>{
     List<Bebida> findAllBebidas();
     @Query(value = "SELECT m, p from Menu m, Porcao p where m.id=p.id")
     List<Porcao> findAllPorcoes();
+
 }
     
 

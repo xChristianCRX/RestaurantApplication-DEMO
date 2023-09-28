@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class LancamentoItem implements Serializable{
+public class LancamentoItem implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,6 @@ public class LancamentoItem implements Serializable{
 
     //Item escolhido e seus acréscimos
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item_pedido")
     private ItemPedido itemPedido;
 
     //Nº do pedido e o garçom responsável
@@ -31,9 +30,4 @@ public class LancamentoItem implements Serializable{
     @JoinColumn(name = "id_lancamento")
     private Lancamento lancamento;
 
-    @Column(name = "quantidade", nullable = false)
-    private int quantidade;
-
-    @Column(name = "observacoes", length = 255, nullable = false)
-    private String observacoes;
 }
