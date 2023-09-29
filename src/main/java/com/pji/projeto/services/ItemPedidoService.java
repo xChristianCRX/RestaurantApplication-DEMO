@@ -1,8 +1,6 @@
 package com.pji.projeto.services;
 
-import com.pji.projeto.models.Acrescimo;
 import com.pji.projeto.models.ItemPedido;
-import com.pji.projeto.repositories.AcrescimoRepository;
 import com.pji.projeto.repositories.ItemPedidoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

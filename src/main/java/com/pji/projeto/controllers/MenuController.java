@@ -2,7 +2,6 @@ package com.pji.projeto.controllers;
 
 import com.pji.projeto.models.Bebida;
 import com.pji.projeto.models.Lanche;
-import com.pji.projeto.models.Pessoa;
 import com.pji.projeto.models.Porcao;
 import com.pji.projeto.repositories.MenuRepository;
 import com.pji.projeto.services.*;

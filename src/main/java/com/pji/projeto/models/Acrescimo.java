@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "acrescimo")
+@Table(name = "acrescimos")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

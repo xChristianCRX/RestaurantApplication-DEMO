@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.pji.projeto.models.Bebida;
 import com.pji.projeto.models.Lanche;
-import com.pji.projeto.models.Menu;
 import com.pji.projeto.models.Porcao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -26,8 +26,10 @@ import jakarta.validation.Valid;
 @Validated
 @RestController
 public class PessoaController {
+
     @Autowired
     private PessoaRepository pessoaRepository;
+    
     @Autowired
     private PessoaService pessoaService;
 

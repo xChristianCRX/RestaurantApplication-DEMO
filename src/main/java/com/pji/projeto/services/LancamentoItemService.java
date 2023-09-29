@@ -1,9 +1,7 @@
 package com.pji.projeto.services;
 
-import com.pji.projeto.models.Lancamento;
 import com.pji.projeto.models.LancamentoItem;
 import com.pji.projeto.repositories.LancamentoItemRepository;
-import com.pji.projeto.repositories.LancamentoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

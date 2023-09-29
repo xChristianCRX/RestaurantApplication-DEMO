@@ -1,6 +1,5 @@
 package com.pji.projeto.controllers;
 
-import com.pji.projeto.models.ItemPedido;
 import com.pji.projeto.models.Lancamento;
 import com.pji.projeto.repositories.LancamentoRepository;
 import com.pji.projeto.services.LancamentoService;
