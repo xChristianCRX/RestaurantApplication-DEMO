@@ -27,7 +27,7 @@ public class LancamentoItemService {
         Date date = new Date();
         String hour = new SimpleDateFormat("HH:mm:ss").format(date);
         lancamento.setId(null);
-        lancamento.getLancamento().getPedido().setHora(hour);
+        lancamento.setHora(hour);
         lancamento = this.repository.save(lancamento);
         return lancamento;
     }

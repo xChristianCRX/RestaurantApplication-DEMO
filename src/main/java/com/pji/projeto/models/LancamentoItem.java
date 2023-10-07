@@ -22,13 +22,23 @@ public class LancamentoItem implements Serializable {
     @Column(name = "id", unique = true)
     private Long id;
 
-    //Item escolhido e seus acréscimos
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "itensLancamento",
+            joinColumns = @JoinColumn(name = "id_lancamento"),
+            inverseJoinColumns = @JoinColumn(name = "id_item")
+    )
     private List<ItemPedido> itemPedido;
 
-    //Nº do pedido e o garçom responsável
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_lancamento")
-    private Lancamento lancamento;
+    @ManyToOne
+    @JoinColumn(name = "id_garcom")
+    private Pessoa garcom;
+
+    @Column(name = "hora")
+    private String hora;
+
+    @ManyToOne
+    @JoinColumn(name = "numero_mesa")
+    private Mesa mesa;
 
 }
